@@ -9,6 +9,17 @@ namespace Modelo.Modelos
 {
     public partial class DbConexion : DbContext
     {
+        private DbConexion(string stringConexion) : base(stringConexion)
+        {
+            this.Configuration.LazyLoadingEnabled
+                = false;
+            this.Configuration.ProxyCreationEnabled = false;
+            this.Database.CommandTimeout = 900;
+        }
 
+        public static DbConexion Create()
+        {
+            return new DbConexion("name");
+        }
     }
 }

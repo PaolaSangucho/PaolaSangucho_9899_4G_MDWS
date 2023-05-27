@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contexto\DbConexion.cs" />
     <Compile Include="Modelos\CLIENTE.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

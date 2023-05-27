@@ -15,6 +15,29 @@ namespace Modelo.Modelos
 
     public class UsuarioMetadato
     {
-
+        [Required]
+        [StringLength(50)]
+        public string USU_NOMBRE { get; set; }
+        [Required]
+        [StringLength(50)]
+        public string USU_APELLIDO { get; set; }
+        [Required]
+        [StringLength(10)]
+        public string USU_CEDULA { get; set; }
+        [Required]
+        [StringLength(100)]
+        public string USU_DIRECCION { get; set; }
+        [Required]
+        [StringLength(10)]
+        public string USU_TELEFONO { get; set; }
+        [Required]
+        [EmailAddress]
+        public string USU_EMAIL { get; set; }
+        [Required]
+        public string USU_USUARIO { get; set; }
+        [Required]
+        public string USU_PASSWORD { get; set; }
+        [Required]
+        public bool USU_ISADMIN { get; set; }
     }
 }

@@ -4,12 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="GasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CLIENTE">
           <Key>
             <PropertyRef Name="CLI_CODIGO" />
           </Key>
-          <Property Name="CLI_CODIGO" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CLI_CODIGO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CLI_NOMBRE" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="CLI_APELLIDO" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="CLI_ID" Type="varchar" MaxLength="16" Nullable="false" />
@@ -22,8 +22,8 @@
           <Key>
             <PropertyRef Name="FACT_CODIGO" />
           </Key>
-          <Property Name="FACT_CODIGO" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CLI_CODIGO" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="FACT_CODIGO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CLI_CODIGO" Type="bigint" Nullable="false" />
           <Property Name="FACT_NUMERO" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="FACT_FECHA" Type="datetime" Nullable="false" />
           <Property Name="FACT_MONTOTOTAL" Type="decimal" Precision="10" Scale="2" Nullable="false" />
@@ -33,7 +33,7 @@
           <Key>
             <PropertyRef Name="USU_CODIGO" />
           </Key>
-          <Property Name="USU_CODIGO" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USU_CODIGO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="USU_NOMBRE" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="USU_APELLIDO" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="USU_CEDULA" Type="varchar" MaxLength="10" Nullable="false" />
@@ -56,7 +56,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="GasModelStoreContainer">
+        <EntityContainer Name="ModelStoreContainer">
           <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FACTURA" EntityType="Self.FACTURA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
@@ -69,12 +69,12 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="GasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="CLIENTE">
           <Key>
             <PropertyRef Name="CLI_CODIGO" />
           </Key>
-          <Property Name="CLI_CODIGO" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CLI_CODIGO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CLI_NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CLI_APELLIDO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CLI_ID" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
@@ -88,8 +88,8 @@
           <Key>
             <PropertyRef Name="FACT_CODIGO" />
           </Key>
-          <Property Name="FACT_CODIGO" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CLI_CODIGO" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="FACT_CODIGO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CLI_CODIGO" Type="Int64" Nullable="false" />
           <Property Name="FACT_NUMERO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="FACT_FECHA" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="FACT_MONTOTOTAL" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
@@ -100,7 +100,7 @@
           <Key>
             <PropertyRef Name="USU_CODIGO" />
           </Key>
-          <Property Name="USU_CODIGO" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USU_CODIGO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="USU_NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="USU_APELLIDO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="USU_CEDULA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
@@ -137,9 +137,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="GasModelStoreContainer" CdmEntityContainer="DbConexion">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="DbConexion">
           <EntitySetMapping Name="CLIENTE">
-            <EntityTypeMapping TypeName="GasModel.CLIENTE">
+            <EntityTypeMapping TypeName="Model.CLIENTE">
               <MappingFragment StoreEntitySet="CLIENTE">
                 <ScalarProperty Name="CLI_CODIGO" ColumnName="CLI_CODIGO" />
                 <ScalarProperty Name="CLI_NOMBRE" ColumnName="CLI_NOMBRE" />
@@ -153,7 +153,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FACTURA">
-            <EntityTypeMapping TypeName="GasModel.FACTURA">
+            <EntityTypeMapping TypeName="Model.FACTURA">
               <MappingFragment StoreEntitySet="FACTURA">
                 <ScalarProperty Name="FACT_CODIGO" ColumnName="FACT_CODIGO" />
                 <ScalarProperty Name="CLI_CODIGO" ColumnName="CLI_CODIGO" />
@@ -165,7 +165,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="USUARIO">
-            <EntityTypeMapping TypeName="GasModel.USUARIO">
+            <EntityTypeMapping TypeName="Model.USUARIO">
               <MappingFragment StoreEntitySet="USUARIO">
                 <ScalarProperty Name="USU_CODIGO" ColumnName="USU_CODIGO" />
                 <ScalarProperty Name="USU_NOMBRE" ColumnName="USU_NOMBRE" />

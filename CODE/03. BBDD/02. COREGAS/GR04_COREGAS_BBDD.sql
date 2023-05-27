@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2014                    */
-/* Created on:     22/5/2023 20:37:38                           */
+/* Created on:     27/5/2023 14:24:37                           */
 /*==============================================================*/
 
 
@@ -38,7 +38,7 @@ go
 /* Table: CLIENTE                                               */
 /*==============================================================*/
 create table CLIENTE (
-   CLI_CODIGO           numeric              identity,
+   CLI_CODIGO           bigint               identity,
    CLI_NOMBRE           varchar(50)          not null,
    CLI_APELLIDO         varchar(50)          not null,
    CLI_ID               varchar(16)          not null,
@@ -54,8 +54,8 @@ go
 /* Table: FACTURA                                               */
 /*==============================================================*/
 create table FACTURA (
-   FACT_CODIGO          numeric              identity,
-   CLI_CODIGO           numeric              not null,
+   FACT_CODIGO          bigint               identity,
+   CLI_CODIGO           bigint               not null,
    FACT_NUMERO          varchar(50)          not null,
    FACT_FECHA           datetime             not null,
    FACT_MONTOTOTAL      decimal(10,2)        not null,

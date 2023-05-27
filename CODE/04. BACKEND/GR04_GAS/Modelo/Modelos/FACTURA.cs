@@ -14,8 +14,8 @@ namespace Modelo.Modelos
     
     public partial class FACTURA
     {
-        public decimal FACT_CODIGO { get; set; }
-        public decimal CLI_CODIGO { get; set; }
+        public long FACT_CODIGO { get; set; }
+        public long CLI_CODIGO { get; set; }
         public string FACT_NUMERO { get; set; }
         public System.DateTime FACT_FECHA { get; set; }
         public decimal FACT_MONTOTOTAL { get; set; }

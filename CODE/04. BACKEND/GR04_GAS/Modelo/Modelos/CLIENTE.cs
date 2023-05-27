@@ -20,7 +20,7 @@ namespace Modelo.Modelos
             this.FACTURA = new HashSet<FACTURA>();
         }
     
-        public decimal CLI_CODIGO { get; set; }
+        public long CLI_CODIGO { get; set; }
         public string CLI_NOMBRE { get; set; }
         public string CLI_APELLIDO { get; set; }
         public string CLI_ID { get; set; }

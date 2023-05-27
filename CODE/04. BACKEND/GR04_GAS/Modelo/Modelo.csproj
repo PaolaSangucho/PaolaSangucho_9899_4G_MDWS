@@ -54,6 +54,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contexto\DbConexion.cs" />
+    <Compile Include="Metadatos\Cliente.cs" />
+    <Compile Include="Metadatos\Factura.cs" />
+    <Compile Include="Metadatos\Usuario.cs" />
     <Compile Include="Modelos\CLIENTE.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -99,6 +102,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Modelos\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model.edmx</DependentUpon>
@@ -109,9 +115,6 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

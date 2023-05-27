@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2014                    */
-/* Created on:     22/5/2023 18:27:44                           */
+/* Created on:     27/5/2023 14:23:58                           */
 /*==============================================================*/
 
 
@@ -15,7 +15,7 @@ go
 /* Table: USUARIO                                               */
 /*==============================================================*/
 create table USUARIO (
-   USU_CODIGO           numeric              identity,
+   USU_CODIGO           bigint               identity,
    USU_NOMBRE           varchar(50)          not null,
    USU_APELLIDO         varchar(50)          not null,
    USU_CEDULA           varchar(10)          not null,

@@ -14,7 +14,7 @@ namespace Modelo.Modelos
     
     public partial class USUARIO
     {
-        public decimal USU_CODIGO { get; set; }
+        public long USU_CODIGO { get; set; }
         public string USU_NOMBRE { get; set; }
         public string USU_APELLIDO { get; set; }
         public string USU_CEDULA { get; set; }

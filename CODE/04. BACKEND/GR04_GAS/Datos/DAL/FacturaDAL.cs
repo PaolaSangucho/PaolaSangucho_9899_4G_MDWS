@@ -43,6 +43,7 @@ namespace Datos.DAL
 
             return resultado;
         }
+
         public static FacturaVMR Get(long codigo)
         {
             FacturaVMR item = null;
@@ -62,6 +63,7 @@ namespace Datos.DAL
 
             return item;
         }
+
         //Devuelve el PK el elemento creado
         public static long Post(FACTURA item)
         {
@@ -76,6 +78,7 @@ namespace Datos.DAL
 
             return codigo;
         }
+
         public static void Put(FacturaVMR item)
         {
             using (var db = DbConexion.Create())
@@ -90,6 +93,7 @@ namespace Datos.DAL
                 db.SaveChanges();
             }
         }
+
         public static void Delete(List<long> codigos)
         {
             using (var db = DbConexion.Create())

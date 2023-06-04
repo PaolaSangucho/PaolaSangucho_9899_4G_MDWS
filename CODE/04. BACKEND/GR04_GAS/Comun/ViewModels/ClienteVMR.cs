@@ -13,6 +13,8 @@ namespace Comun.ViewModels
         public string apellido { get; set; }
         public string id { get; set; }
         public string email { get; set; }
+        public string telefono { get; set; }
+        public string direccion { get; set; }
         public decimal fact_total { get; set; }
     }
 }

@@ -45,6 +45,7 @@
     <Compile Include="ViewModels\ClienteVMR.cs" />
     <Compile Include="ViewModels\FacturaVMR.cs" />
     <Compile Include="ViewModels\ListadoPaginadoVMR.cs" />
+    <Compile Include="ViewModels\RespuestaVMR.cs" />
     <Compile Include="ViewModels\UsuarioVMR.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

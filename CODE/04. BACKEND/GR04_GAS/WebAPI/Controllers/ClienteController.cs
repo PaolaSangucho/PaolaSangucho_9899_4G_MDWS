@@ -14,6 +14,7 @@ namespace WebAPI.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ClienteController : ApiController
     {
+        [HttpGet]
         public IHttpActionResult Gets(int cantidad = 10, int pagina = 0, string textoBusqueda = null)
         {
             var respuesta = new RespuestaVMR<ListadoPaginadoVMR<ClienteVMR>>();
@@ -58,19 +59,67 @@ namespace WebAPI.Controllers
             return Content(respuesta.codigo, respuesta);
         }
 
+        [HttpPost]
         public IHttpActionResult Post(CLIENTE item)
         {
+            var respuesta = new RespuestaVMR<long?>();
 
+            try
+            {
+                respuesta.datos = ClienteBLL.Post(item);
+            }
+            catch (Exception ex)
+            {
+                respuesta.codigo = HttpStatusCode.InternalServerError;
+                respuesta.datos = null;
+                respuesta.mensajes.Add(ex.Message);
+                respuesta.mensajes.Add(ex.ToString());
+            }
+
+            return Content(respuesta.codigo, respuesta);
         }
 
+        [HttpPut]
         public IHttpActionResult Put(long codigo, ClienteVMR item)
         {
+            var respuesta = new RespuestaVMR<bool>();
 
+            try
+            {
+                item.codigo = codigo;
+                ClienteBLL.Put(item);
+                respuesta.datos = true;
+            }
+            catch (Exception ex)
+            {
+                respuesta.codigo = HttpStatusCode.InternalServerError;
+                respuesta.datos = false;
+                respuesta.mensajes.Add(ex.Message);
+                respuesta.mensajes.Add(ex.ToString());
+            }
+
+            return Content(respuesta.codigo, respuesta);
         }
 
-        public IHttpActionResult Delete(List<long> codigo)
+        [HttpDelete]
+        public IHttpActionResult Delete(List<long> codigos)
         {
+            var respuesta = new RespuestaVMR<bool>();
 
+            try
+            {
+                ClienteBLL.Delete(codigos);
+                respuesta.datos = true;
+            }
+            catch (Exception ex)
+            {
+                respuesta.codigo = HttpStatusCode.InternalServerError;
+                respuesta.datos = false;
+                respuesta.mensajes.Add(ex.Message);
+                respuesta.mensajes.Add(ex.ToString());
+            }
+
+            return Content(respuesta.codigo, respuesta);
         }
     }
 }

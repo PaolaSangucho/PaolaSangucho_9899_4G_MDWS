@@ -24,6 +24,7 @@ namespace Datos.DAL
                     CLI_CODIGO = f.CLI_CODIGO,
                     FACT_NUMERO = f.FACT_NUMERO,
                     FACT_FECHA = f.FACT_FECHA,
+                    FACT_CANTIDAD = f.FACT_CANTIDAD,
                     FACT_MONTOTOTAL = f.FACT_MONTOTOTAL,
                     CLI_NOMBRE = db.CLIENTE.Where(c => !c.CLI_BORRADO && c.CLI_CODIGO == f.CLI_CODIGO).Select(c => c.CLI_NOMBRE).FirstOrDefault(),
                     CLI_APELLIDO = db.CLIENTE.Where(c => !c.CLI_BORRADO && c.CLI_CODIGO == f.CLI_CODIGO).Select(c => c.CLI_APELLIDO).FirstOrDefault(),
@@ -38,7 +39,7 @@ namespace Datos.DAL
                 resultado.cantidadTotal = query.Count();
 
                 resultado.elementos = query
-                    .OrderBy(f => f.FACT_CODIGO)
+                    .OrderBy(f => f.FACT_NUMERO)
                     .Skip(pagina * cantidad)
                     .Take(cantidad)
                     .ToList();
@@ -60,6 +61,7 @@ namespace Datos.DAL
                    CLI_CODIGO = f.CLI_CODIGO,
                    FACT_NUMERO = f.FACT_NUMERO,
                    FACT_FECHA = f.FACT_FECHA,
+                   FACT_CANTIDAD = f.FACT_CANTIDAD,
                    FACT_MONTOTOTAL = f.FACT_MONTOTOTAL
                    
                 }).FirstOrDefault();
@@ -90,6 +92,7 @@ namespace Datos.DAL
 
                 itemUpdate.FACT_NUMERO = item.FACT_NUMERO;
                 itemUpdate.FACT_FECHA = item.FACT_FECHA;
+                itemUpdate.FACT_CANTIDAD = item.FACT_CANTIDAD;
                 itemUpdate.FACT_MONTOTOTAL = item.FACT_MONTOTOTAL;
 
                 db.Entry(itemUpdate).State = System.Data.Entity.EntityState.Modified;

@@ -1,4 +1,4 @@
-﻿// La generación de código T4 está habilitada para el modelo 'G:\Usuario\Nueva carpeta (2)\MAY - AGOS 23\MET. DES. SOFTWARE\GitHub\Sangucho-Paola_9899_4G_MDWS\CODE\04. BACKEND\GR04_GAS\Modelo\Modelos\Model.edmx'. 
+﻿// La generación de código T4 está habilitada para el modelo 'G:\Usuario\Nueva carpeta (2)\MAY - AGOS 23\MET. DES. SOFTWARE\Proyecto\04. BACKEND\GR04_GAS\Modelo\Modelos\Model.edmx'. 
 // Para habilitar la generación de código heredada, cambie el valor de la propiedad del diseñador 'Estrategia de generación de código'
 // por 'ObjectContext heredado'. Esta propiedad está disponible en la ventana Propiedades cuando se abre
 // el modelo en el diseñador.

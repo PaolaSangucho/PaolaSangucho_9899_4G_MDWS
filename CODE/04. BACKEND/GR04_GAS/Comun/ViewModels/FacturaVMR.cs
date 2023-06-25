@@ -22,6 +22,7 @@ namespace Comun.ViewModels
         public string CLI_ID { get; set; }
         public string CLI_EMAIL { get; set; }
         public string FACT_NUMERO { get; set; }
+        public long FACT_CANTIDAD { get; set; }
         public System.DateTime FACT_FECHA { get; set; }
         public decimal FACT_MONTOTOTAL { get; set; }
 

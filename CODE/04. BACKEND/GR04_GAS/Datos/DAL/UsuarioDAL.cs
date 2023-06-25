@@ -10,13 +10,13 @@ namespace Datos.DAL
 {
     public class UsuarioDAL
     {
-        public static UsuarioVMR LeerUno(string user, string password)
+        public static UsuarioVMR Login(string user, string password)
         {
             UsuarioVMR item = null;
 
             using (var db = DbConexion.Create())
             {
-                item = db.USUARIO.Where(u => user.Contains(u.USU_USUARIO) && password.Contains(u.USU_PASSWORD)).Select(u => new UsuarioVMR
+                item = db.USUARIO.Where(u => user == u.USU_USUARIO && password == u.USU_PASSWORD).Select(u => new UsuarioVMR
                 {
                     USU_NOMBRE = u.USU_NOMBRE,
                     USU_APELLIDO = u.USU_APELLIDO,

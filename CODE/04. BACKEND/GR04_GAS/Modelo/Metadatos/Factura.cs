@@ -26,5 +26,7 @@ namespace Modelo.Modelos
         public decimal FACT_MONTOTOTAL { get; set; }
         [Required]
         public bool FACT_BORRADO { get; set; }
+        [Required]
+        public long FACT_CANTIDAD { get; set; }
     }
 }

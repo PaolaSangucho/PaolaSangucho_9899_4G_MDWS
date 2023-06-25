@@ -20,6 +20,7 @@ namespace Modelo.Modelos
         public System.DateTime FACT_FECHA { get; set; }
         public decimal FACT_MONTOTOTAL { get; set; }
         public bool FACT_BORRADO { get; set; }
+        public long FACT_CANTIDAD { get; set; }
     
         public virtual CLIENTE CLIENTE { get; set; }
     }

@@ -14,5 +14,10 @@ namespace Logica.BLL
         {
             return UsuarioDAL.LeerUno(user, password);
         }
+
+        public static UsuarioVMR Login(string user, string password)
+        {
+            return UsuarioDAL.Login(user, password);
+        }
     }
 }

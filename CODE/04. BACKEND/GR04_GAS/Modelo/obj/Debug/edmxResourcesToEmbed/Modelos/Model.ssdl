@@ -23,6 +23,7 @@
     <Property Name="FACT_FECHA" Type="datetime" Nullable="false" />
     <Property Name="FACT_MONTOTOTAL" Type="decimal" Precision="10" Scale="2" Nullable="false" />
     <Property Name="FACT_BORRADO" Type="bit" Nullable="false" />
+    <Property Name="FACT_CANTIDAD" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="USUARIO">
     <Key>

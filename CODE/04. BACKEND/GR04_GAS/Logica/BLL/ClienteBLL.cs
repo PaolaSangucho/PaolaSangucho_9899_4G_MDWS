@@ -21,6 +21,11 @@ namespace Logica.BLL
             return ClienteDAL.LeerUno(codigo);
         }
 
+        public static ClienteVMR clienteRegistrado(string ID)
+        {
+            return ClienteDAL.clienteRegistrado(ID);
+        }
+
         public static long Crear(CLIENTE item)
         {
             return ClienteDAL.Crear(item);

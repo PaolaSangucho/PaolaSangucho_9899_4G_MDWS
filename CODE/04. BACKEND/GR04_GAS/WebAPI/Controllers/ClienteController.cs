@@ -61,6 +61,28 @@ namespace WebAPI.Controllers
             return Content(respuesta.codigo, respuesta);
         }
 
+        [HttpGet]
+        [Route("api/cliente/registrado/{ID}")]
+        public IHttpActionResult clienteRegistrado(string ID)
+        {
+            var respuesta = new RespuestaVMR<ClienteVMR>();
+
+            try
+            {
+                respuesta.datos = ClienteBLL.clienteRegistrado(ID);
+                respuesta.mensajes.Add("Cliente registrado!!");
+            }
+            catch (Exception ex)
+            {
+                respuesta.codigo = HttpStatusCode.InternalServerError;
+                respuesta.datos = null;
+                respuesta.mensajes.Add(ex.Message);
+                respuesta.mensajes.Add(ex.ToString());
+            }
+
+            return Content(respuesta.codigo, respuesta);
+        }
+
         [HttpPost]
         public IHttpActionResult Crear(CLIENTE item)
         {

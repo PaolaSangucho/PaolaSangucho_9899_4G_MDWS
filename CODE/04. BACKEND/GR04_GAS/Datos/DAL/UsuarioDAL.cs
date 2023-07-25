@@ -16,7 +16,25 @@ namespace Datos.DAL
 
             using (var db = DbConexion.Create())
             {
-                item = db.USUARIO.Where(u => user == u.USU_USUARIO && password == u.USU_PASSWORD).Select(u => new UsuarioVMR
+                /*
+                var query = (from u in db.USUARIO
+                             where
+                                u.USU_USUARIO == user
+                                && u.USU_PASSWORD == password
+
+                             select new UsuarioVMR
+                             {
+                                 USU_NOMBRE = u.USU_NOMBRE,
+                                 USU_APELLIDO = u.USU_APELLIDO,
+                                 USU_EMAIL = u.USU_EMAIL,
+                                 USU_USUARIO = u.USU_USUARIO,
+                                 USU_PASSWORD = u.USU_PASSWORD,
+                                 USU_ISADMIN = u.USU_ISADMIN
+                             }
+                            );
+                */
+                
+                item = db.USUARIO.Where(u => u.USU_USUARIO == user && u.USU_PASSWORD == password).Select(u => new UsuarioVMR
                 {
                     USU_NOMBRE = u.USU_NOMBRE,
                     USU_APELLIDO = u.USU_APELLIDO,
@@ -25,8 +43,10 @@ namespace Datos.DAL
                     USU_PASSWORD = u.USU_PASSWORD,
                     USU_ISADMIN = u.USU_ISADMIN
                 }).FirstOrDefault();
+                
+                //item = query.FirstOrDefault();
             }
-
+            
             return item;
         }
     }

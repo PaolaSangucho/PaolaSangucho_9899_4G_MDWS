@@ -61,7 +61,33 @@ namespace Datos.DAL
                     CLI_NOMBRE = c.CLI_NOMBRE,
                     CLI_APELLIDO = c.CLI_APELLIDO,
                     CLI_EMAIL = c.CLI_EMAIL,
-                    CLI_FACT_TOTAL = db.FACTURA.Where(f => !f.FACT_BORRADO && f.CLI_CODIGO == c.CLI_CODIGO).Select(f => f.FACT_MONTOTOTAL).ToList().Sum()
+                    CLI_TEL = c.CLI_TEL,
+                    CLI_DIRECCION = c.CLI_DIRECCION
+        //CLI_FACT_TOTAL = db.FACTURA.Where(f => !f.FACT_BORRADO && f.CLI_CODIGO == c.CLI_CODIGO).Select(f => f.FACT_MONTOTOTAL).ToList().Sum()
+
+
+                }).FirstOrDefault();
+            }
+
+            return item;
+        }
+
+        public static ClienteVMR clienteRegistrado(string ID)
+        {
+            ClienteVMR item = null;
+
+            using (var db = DbConexion.Create())
+            {
+                item = db.CLIENTE.Where(c => !c.CLI_BORRADO && c.CLI_ID.Equals(ID)).Select(c => new ClienteVMR
+                {
+                    CLI_CODIGO = c.CLI_CODIGO,
+                    CLI_ID = c.CLI_ID,
+                    CLI_NOMBRE = c.CLI_NOMBRE,
+                    CLI_APELLIDO = c.CLI_APELLIDO,
+                    CLI_EMAIL = c.CLI_EMAIL,
+                    CLI_TEL = c.CLI_TEL,
+                    CLI_DIRECCION = c.CLI_DIRECCION
+                    //CLI_FACT_TOTAL = db.FACTURA.Where(f => !f.FACT_BORRADO && f.CLI_CODIGO == c.CLI_CODIGO).Select(f => f.FACT_MONTOTOTAL).ToList().Sum()
 
 
                 }).FirstOrDefault();
